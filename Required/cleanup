@@ -1,0 +1,4 @@
+#!/bin/bash
+#call my clean up script and echo confirmation
+python /home/pi/scripts/python_scripts/cleanup_gpio.py
+echo "GPIOs all clean"

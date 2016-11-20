@@ -1,0 +1,42 @@
+#!/bin/sh
+# /etc/init.d/superscript
+### BEGIN INIT INFO
+# Provides:          Starts superscript at startup
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+#Default-Start:      2 3 4 5
+#Default-Stop:       0 1 6
+# Short-Description: Simple script to start a program at boot
+# Description:       Starts superscript at boot / stops superscript at shutdown/
+### END INIT INFO
+
+
+#echo "Starting superscript"
+#killpy \
+#&& cleanup \
+#./relaytemp_superscript
+
+case "$1" in
+  start)
+    echo "Starting Range Trigger superscript"
+#    /home/pi/relaytemp_superscript
+#    sleep 2
+    /home/pi/rangetrigger_superscript
+    ;;
+  stop)
+    echo "Stopping Range Trigger superscript"
+    /home/pi/bin/killpy \
+    && /home/pi/bin/cleanup \
+    && killall startupscript
+    ;;
+  *)
+    echo "Usage: /etc/init.d/startupscript {start|stop}"
+    exit 1
+    ;;
+esac
+
+exit 0
+#echo "Starting superscript" \
+#&& killpy \
+#&& cleanup \
+#&& ./superscript

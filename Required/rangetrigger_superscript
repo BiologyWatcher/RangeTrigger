@@ -1,0 +1,8 @@
+#!/bin/sh
+# /etc/init.d/startupscript
+sleep 5
+sudo python /home/pi/RangeTrigger/write_ultrasonic.py &
+sleep 5
+sudo python /home/pi/RangeTrigger/get_medianvalue.py &
+sleep 5
+sudo python /home/pi/RangeTrigger/post_notification.py &

@@ -1,0 +1,4 @@
+#!/bin/bash
+#Kill all running python scripts
+sudo killall python
+echo "Python dead"
